@@ -6,7 +6,7 @@
 * Return: void
 */
 
-void stack_pop(stack_t **head)
+stack_t *stack_pop(stack_t **head)
 {
 	stack_t *temp;
 	
@@ -17,6 +17,7 @@ void stack_pop(stack_t **head)
 		/*free(top);*/
 		(*head) = temp;
 	}
+	return (*head);
 }
 
 void monty_pop(stack_t **head, unsigned int line_number)

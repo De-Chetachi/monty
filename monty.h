@@ -67,7 +67,7 @@ void (*opcode_cmp(char *opcode))(stack_t **head, unsigned int line_number);
 
 /**/
 
-void stack_add(stack_t **top);
+stack_t *stack_add(stack_t **top);
 void monty_push(stack_t **head, unsigned int line_number);
 void stack_ele_add(stack_t **head);
 void monty_add(stack_t **head, unsigned int line_number);
@@ -82,9 +82,9 @@ void stack_ele_sub(stack_t **head);
 void monty_sub(stack_t **top, unsigned int line_number);
 int stack_len(stack_t *top);
 void monty_pchar(stack_t **head, unsigned int line_number);
-void stack_pop(stack_t **head);
+stack_t *stack_pop(stack_t **head);
 void monty_pop(stack_t **head, unsigned int line_number);
-void stack_print(stack_t **top);
+stack_t *stack_print(stack_t **top);
 void monty_pall(stack_t **head, unsigned int line_number);
 void print_top(stack_t **head);
 void monty_pint(stack_t **head, unsigned int line_number);

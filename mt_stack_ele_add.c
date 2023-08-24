@@ -15,11 +15,20 @@ void stack_ele_add(stack_t **head)
 	temp->n = temp->n + top->n;
 }
 
+/**
+* monty_add - hjkl
+* @head: head
+* @line_number: line num
+* Return: void
+*/
 void monty_add(stack_t **head, unsigned int line_number)
 {
 	if (stack_len(*head) < 2)
 	{
-		fprintf(stderr, "L<%u>: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		free_stack_t(glob.head);
+		free_double(glob.av);
+		free(glob.buff);
 		exit(EXIT_FAILURE);
 	}
 	else

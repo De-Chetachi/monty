@@ -6,7 +6,7 @@
 * Return: void
 */
 
-void stack_add(stack_t **top)
+stack_t *stack_add(stack_t **top)
 {
 	int n = atoi(glob.av[1]);
 	stack_t *node;
@@ -34,6 +34,7 @@ void stack_add(stack_t **top)
 		node->next = *top;
 		*top = node;
 	}
+	return (*top);
 }
 
 /**

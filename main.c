@@ -33,25 +33,27 @@ FILE *file_open(int ac, char **argv)
 
 void read_line(void)
 {
-	ssize_t bytes = 1;
+	ssize_t bytes;
 	size_t n;
 	int tok_len;
 	void (*ins)(stack_t **stack, unsigned int line_number);
 
+	bytes = getline(&glob.buff, &n, glob.monty_file);
 	while (bytes != -1)
 	{
-		bytes = getline(&glob.buff, &n, glob.monty_file);
 		glob.line_number++;
 		glob.av = tok_str(glob.buff, " \t\n", &tok_len);
 		glob.opd_ac = tok_len - 1;
 
 		if (glob.opd_ac == 0)
 		{
+			bytes = getline(&glob.buff, &n, glob.monty_file);
 			free_double(glob.av);
 			continue;
 		}
 		if (glob.av[0][0] == '#')
 		{
+			bytes = getline(&glob.buff, &n, glob.monty_file);
 			free_double(glob.av);
 			continue;
 		}
@@ -68,6 +70,7 @@ void read_line(void)
 		}
 		ins(&glob.head, glob.line_number);
 		free_double(glob.av);
+		bytes = getline(&glob.buff, &n, glob.monty_file);
 		/*free(glob.buff);*/
 	}
 	free_stack_t(glob.head);

@@ -6,19 +6,24 @@
 * Return: void
 */
 
-void stack_print(stack_t **top)
+stack_t *stack_print(stack_t **top)
 {
 	stack_t *head = *top;
-	stack_t *temp;
 
-	temp = head;
-	while(temp)
+	while(head)
 	{
-		printf("%d\n", temp->n);
-		temp = temp->next;
+		printf("%d\n", head->n);
+		head = head->next;
 	}
+	return (*top);
 }
 
+/**
+* monty_pall - hjkl
+* @head: head
+* @line_number: line num
+* Return: void
+*/
 void monty_pall(stack_t **head, unsigned int line_number)
 {
 	(void)line_number;
