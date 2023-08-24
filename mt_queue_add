@@ -1,0 +1,15 @@
+#include "monty.h"
+
+void queue_add(stack_t *top)
+{
+	stack_t *node;
+
+	node = malloc
+	while (top->next)
+	{
+		top = top->next;
+	}
+	top->next = node;
+	node->prev = top;
+
+}
