@@ -46,13 +46,26 @@ stack_t *stack_add(stack_t **top)
 
 void monty_push(stack_t **head, unsigned int line_number)
 {
-	if (glob.opd_ac < 2 || atoi(glob.av[1]) == 0)
+	int j;
+
+	if (glob.opd_ac < 2)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_stack_t(glob.head);
 		free_double(glob.av);
 		free(glob.buff);
 		exit(EXIT_FAILURE);
+	}
+	for (j = 0; glob.av[1][j] != '\0'; j++)
+	{
+		if (!isdigit(glob.av[1][j]) && glob.av[1][j] != '-')
+		{
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+			free_stack_t(glob.head);
+			free_double(glob.av);
+			free(glob.buff);
+			exit(EXIT_FAILURE);
+		}
 	}
 	stack_add(head);
 }

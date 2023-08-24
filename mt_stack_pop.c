@@ -12,10 +12,9 @@ stack_t *stack_pop(stack_t **head)
 	
 	if (*head)
 	{
-		temp = (*head)->next;
-		temp->prev = NULL;
-		/*free(top);*/
-		(*head) = temp;
+		temp = *head;
+		*head = (*head)->next;
+		free(temp);
 	}
 	return (*head);
 }
@@ -24,9 +23,9 @@ void monty_pop(stack_t **head, unsigned int line_number)
 {
 	stack_t *top = *head;
 	
-	if (!top)
+	if (!head || !top)
 	{
-		fprintf(stderr, "L<%u>: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	stack_pop(head);
