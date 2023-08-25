@@ -37,7 +37,7 @@ void monty_div(stack_t **top, unsigned int line_number)
 {
         if (stack_len(*top) < 2)
         {
-                fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+                fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
 		free_stack_t(glob.head);
                 free_double(glob.av);
                 free(glob.buff);
