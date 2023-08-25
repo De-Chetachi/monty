@@ -22,7 +22,7 @@ void stack_ele_mod(stack_t **head, unsigned int line_number)
 		free_stack_t(glob.head);
                 free_double(glob.av);
                 free(glob.buff);
-		exit(EXIT_SUCCESS);
+		exit(EXIT_FAILURE);
 	}
 }
 
