@@ -12,7 +12,7 @@ void monty_pstr(stack_t **top, unsigned int line_number)
 
 	(void)line_number;
 	temp = *top;
-	while (temp && (temp->n > 0 && temp->n < 128))
+	while (temp && (temp->n >= 0 && temp->n < 128))
 	{
 		putchar(temp->n);
 		temp = temp->next;
