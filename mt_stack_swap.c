@@ -27,6 +27,10 @@ void monty_swap(stack_t **head, unsigned int line_number)
 	if (stack_len(top) < 2)
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		free_stack_t(glob.head);
+                free_double(glob.av);
+                free(glob.buff);
+                exit(EXIT_FAILURE);
 	}
 	stack_swap(head);
 
