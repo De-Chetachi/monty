@@ -12,9 +12,12 @@ void monty_rotr(stack_t **head, unsigned int line_number)
 	stack_t *temp;
 
 	(void)line_number;
-	while (top->next)
+	if (top)
 	{
-		top = top->next;
+		while (top->next)
+		{
+			top = top->next;
+		}
 	}
 	*head = top;
 
