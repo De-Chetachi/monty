@@ -8,21 +8,23 @@
 
 void monty_rotl(stack_t **head, unsigned int line_number)
 {
-	stack_t *top = *head;
-	stack_t *temp = top, *tail, *temp_top;
+	stack_t *top;
+	stack_t *temp = *head, *tail, *temp_top;
 	int i = 0;
 
 	(void)line_number;
 	if (temp)
-		i++;
-
-	while (temp->next)
 	{
-		temp = temp->next;
 		i++;
+		while (temp->next)
+		{
+			temp = temp->next;
+			i++;
+		}
 	}
 	if (i > 1)
 	{
+		top = *head;
 		if (i > 2)
 		{
 			tail = temp;
