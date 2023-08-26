@@ -9,21 +9,20 @@
 void monty_rotr(stack_t **head, unsigned int line_number)
 {
 	stack_t *top = *head;
-	stack_t *temp, *new_top;
+	stack_t *temp;
 
 	(void)line_number;
 	while (top->next)
 	{
 		top = top->next;
 	}
-	new_top = top;
+	*head = top;
 
 	while (top)
 	{
 		temp = top->next;
 		top->next = top->prev;
 		top->prev = temp;
-		top = temp;
+		top = top->next;
 	}
-	top = new_top;
 }

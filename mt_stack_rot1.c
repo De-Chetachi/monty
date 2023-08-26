@@ -31,7 +31,7 @@ void monty_rotl(stack_t **head, unsigned int line_number)
 			top->prev = tail;
 			top->next = NULL;
 			temp_top->prev = NULL;
-			top = temp_top;
+			*head = temp_top;
 		}
 		else if (i == 2)
 		{
@@ -40,7 +40,7 @@ void monty_rotl(stack_t **head, unsigned int line_number)
 			tail->next = top;
 			top->prev = tail;
 			top->next = NULL;
-			top = tail;
+			*head = tail;
 		}
 	}
 }

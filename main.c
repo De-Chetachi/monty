@@ -10,6 +10,7 @@ void glob_init(FILE *Fptr)
 	glob.line_number = 0;
 	glob.opd_ac = 0;
 	glob.head = NULL;
+	glob.stack = 1;
 }
 
 FILE *file_open(int ac, char **argv)

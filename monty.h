@@ -54,8 +54,10 @@ typedef struct global
 	unsigned int line_number;
 	int opd_ac;
 	stack_t *head;
+	int stack;
 } global_t;
 
+stack_t *queue_add(stack_t **head);
 FILE *file_open(int ac, char **argv);
 void glob_init(FILE *Fptr);
 extern global_t glob;
@@ -95,5 +97,7 @@ void stack_swap(stack_t **head);
 void monty_swap(stack_t **head, unsigned int line_number);
 void free_double(char **vector);
 void free_stack_t(stack_t *head);
+void monty_stack(stack_t **head, unsigned int line_number);
+void monty_queue(stack_t **head, unsigned int line_number);
 
 #endif

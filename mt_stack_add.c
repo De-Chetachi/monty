@@ -67,5 +67,8 @@ void monty_push(stack_t **head, unsigned int line_number)
 			exit(EXIT_FAILURE);
 		}
 	}
-	stack_add(head);
+	if (glob.stack)
+		stack_add(head);
+	else
+		queue_add(head);
 }

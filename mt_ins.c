@@ -21,9 +21,9 @@ void (*opcode_cmp(char *opcode))(stack_t **head, unsigned int line_number)
 	ins[12].opcode = "rotl", ins[12].f = monty_rotl;
 	ins[13].opcode = "rotr", ins[13].f = monty_rotr;
 	ins[14].opcode = "nop", ins[14].f = monty_nop;
-	/*{"queue", &monty_queue},*/
-	/*{"stack", &monty_stack}*/
-	ins[15].opcode = NULL, ins[15].f = NULL;
+	ins[15].opcode = "queue", ins[15].f = monty_queue;
+	ins[16].opcode = "stack", ins[16].f = monty_stack;
+	ins[17].opcode = NULL, ins[17].f = NULL;
 
 	while(ins[i].opcode)
 	{
